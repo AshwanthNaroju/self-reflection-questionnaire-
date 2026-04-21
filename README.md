@@ -20,6 +20,6 @@ A professional web application for assessing and tracking growth mindset develop
 ## Installation
 ```bash
 git clone [your-repo-url]
-cd questionnaire_app
+growth-mindset-assessment
 pip install -r requirements.txt
 python app.py
