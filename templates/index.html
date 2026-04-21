@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="hero-section">
+    <div class="container">
+        <div class="row align-items-center min-vh-75">
+            <div class="col-lg-6">
+                <h1 class="display-4 fw-bold mb-4">
+                    <i class="fas fa-chart-line text-primary"></i>
+                    Discover Your Growth Mindset
+                </h1>
+                <p class="lead mb-4">
+                    Take our comprehensive assessment to understand your adaptability, 
+                    teamwork, and focus. Get personalized insights and track your progress over time.
+                </p>
+                <div class="d-grid gap-3 d-sm-flex">
+                    {% if not current_user.is_authenticated %}
+                        <a href="{{ url_for('register') }}" class="btn btn-primary btn-lg px-4">
+                            <i class="fas fa-user-plus me-2"></i>Get Started
+                        </a>
+                        <a href="{{ url_for('login') }}" class="btn btn-outline-primary btn-lg px-4">
+                            <i class="fas fa-sign-in-alt me-2"></i>Login
+                        </a>
+                    {% else %}
+                        <a href="{{ url_for('dashboard') }}" class="btn btn-primary btn-lg px-4">
+                            <i class="fas fa-play me-2"></i>Go to Dashboard
+                        </a>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <i class="fas fa-comments"></i>
+                        <h5>Interactive Questions</h5>
+                        <p>Engaging scenarios that reflect real-life situations</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-chart-simple"></i>
+                        <h5>Instant Results</h5>
+                        <p>Get detailed insights about your mindset</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-trophy"></i>
+                        <h5>Track Progress</h5>
+                        <p>Monitor your growth over multiple assessments</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-shield-alt"></i>
+                        <h5>Secure & Private</h5>
+                        <p>Your data is protected and confidential</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

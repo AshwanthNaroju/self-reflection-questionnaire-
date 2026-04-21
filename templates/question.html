@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-lg-8">
+        <div class="card shadow-lg">
+            <div class="card-header bg-primary text-white">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h4 class="mb-0"><i class="fas fa-question-circle me-2"></i>Assessment Question</h4>
+                    <span class="badge bg-light text-dark">Question {{ question_number }} of {{ total_questions }}</span>
+                </div>
+            </div>
+            <div class="card-body p-4">
+                <div class="progress mb-4">
+                    <div class="progress-bar bg-success" role="progressbar" style="width: {{ progress }}%" aria-valuenow="{{ progress }}" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                
+                <h5 class="mb-4">{{ node.text }}</h5>
+                
+                <form method="POST">
+                    <input type="hidden" name="question_id" value="{{ node.id }}">
+                    <div class="options-list">
+                        {% for option in options %}
+                            <div class="option-item">
+                                <input type="radio" name="answer" value="{{ option }}" id="option{{ loop.index }}" required>
+                                <label for="option{{ loop.index }}">{{ option }}</label>
+                            </div>
+                        {% endfor %}
+                    </div>
+                    
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-4">
+                        <button type="submit" class="btn btn-primary btn-lg">
+                            <i class="fas fa-arrow-right me-2"></i>Next Question
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+        <div class="text-center mt-3">
+            <small class="text-muted">
+                <i class="fas fa-info-circle me-1"></i>Choose the option that best describes you
+            </small>
+        </div>
+    </div>
+</div>
+{% endblock %}

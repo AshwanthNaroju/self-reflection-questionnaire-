@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <div class="welcome-card">
+            <h2>Welcome back, {{ current_user.username }}!</h2>
+            <p>Track your growth mindset progress and see how you're improving over time.</p>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-4">
+    <div class="col-md-6 mb-4">
+        <div class="card h-100">
+            <div class="card-body text-center">
+                <i class="fas fa-clipboard-list fa-3x text-primary mb-3"></i>
+                <h4>Take Assessment</h4>
+                <p>Complete the comprehensive assessment to evaluate your current mindset</p>
+                {% if has_completed %}
+                    <a href="{{ url_for('reset') }}" class="btn btn-warning">
+                        <i class="fas fa-sync-alt me-2"></i>Retake Assessment
+                    </a>
+                {% else %}
+                    <a href="{{ url_for('start') }}" class="btn btn-primary">
+                        <i class="fas fa-play me-2"></i>Start Now
+                    </a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-6 mb-4">
+        <div class="card h-100">
+            <div class="card-body text-center">
+                <i class="fas fa-chart-line fa-3x text-success mb-3"></i>
+                <h4>Your Results</h4>
+                <p>View your assessment results and track improvement</p>
+                {% if has_completed %}
+                    <a href="{{ url_for('results') }}" class="btn btn-success">
+                        <i class="fas fa-chart-bar me-2"></i>View Results
+                    </a>
+                {% else %}
+                    <button class="btn btn-secondary" disabled>Complete assessment first</button>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header bg-info text-white">
+                <h5 class="mb-0"><i class="fas fa-lightbulb me-2"></i>Quick Tips</h5>
+            </div>
+            <div class="card-body">
+                <ul class="mb-0">
+                    <li>Answer honestly to get accurate insights about your growth mindset</li>
+                    <li>You can retake the assessment anytime to track your progress</li>
+                    <li>Your responses are private and only visible to you</li>
+                    <li>Complete all questions to receive your personalized mindset analysis</li>
+                    <li>The assessment has 3 main sections with multiple questions each</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
