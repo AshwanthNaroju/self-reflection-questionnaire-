@@ -1,0 +1,45 @@
+id	parent	type	text	options	mapping	score
+Q1		question	When things changed, how did you respond?	Adjusted strategy|Stayed calm|Took initiative|Felt stuck|Avoided situation|Blamed others		
+D1	Q1	decision			answer=Adjusted strategy:Q2P;answer=Stayed calm:Q2P;answer=Took initiative:Q2P;answer=Felt stuck:Q2N;answer=Avoided situation:Q2N;answer=Blamed others:Q2N	
+
+Q2P	D1	question	What helped you handle the situation effectively?	Planning|Experience|Support		
+D2P	Q2P	decision			answer=Planning:Q3P;answer=Experience:Q3P;answer=Support:Q3P	
+
+Q3P	D2P	question	Would you use the same approach again?	Yes|Maybe|No		
+RP	Q3P	reflection	You demonstrate strong adaptability and problem-solving ability.		+2
+
+Q2N	D1	question	What made it difficult to respond effectively?	Confusion|Stress|Lack of clarity		
+D2N	Q2N	decision			answer=Confusion:Q3N;answer=Stress:Q3N;answer=Lack of clarity:Q3N	
+
+Q3N	D2N	question	What could you do differently next time?	Plan better|Ask help|Stay calm		
+RN	Q3N	reflection	You are recognizing areas of improvement, which is the first step to growth.		+1
+
+Q4		question	How did you contribute to others today?	Helped someone|Shared knowledge|Supported team|Did not help|Focused only on self|Ignored others		
+D4	Q4	decision			answer=Helped someone:Q5P;answer=Shared knowledge:Q5P;answer=Supported team:Q5P;answer=Did not help:Q5N;answer=Focused only on self:Q5N;answer=Ignored others:Q5N	
+
+Q5P	D4	question	Why do you think your contribution mattered?	Helped team|Improved work|Built trust		
+D5P	Q5P	decision			answer=Helped team:Q6P;answer=Improved work:Q6P;answer=Built trust:Q6P	
+
+Q6P	D5P	question	How can you continue this behavior?	Be consistent|Take initiative|Support more		
+R2P	Q6P	reflection	You show strong teamwork and leadership qualities.		+2
+
+Q5N	D4	question	What stopped you from helping others?	Busy|Not interested|Unaware		
+D5N	Q5N	decision			answer=Busy:Q6N;answer=Not interested:Q6N;answer=Unaware:Q6N	
+
+Q6N	D5N	question	What is one way you can improve?	Help one person|Communicate|Be aware		
+R2N	Q6N	reflection	Awareness is the first step toward becoming a better team player.		+1
+
+Q7		question	Where did you focus most of your energy?	Balanced both|Self goals|Team goals|Got distracted|No clear focus		
+D7	Q7	decision			answer=Balanced both:Q8P;answer=Self goals:Q8M;answer=Team goals:Q8M;answer=Got distracted:Q8N;answer=No clear focus:Q8N	
+
+Q8P	D7	question	How did you maintain balance?	Time management|Prioritization|Planning		
+R3P	Q8P	reflection	You demonstrate excellent balance and productivity.		+2
+
+Q8M	D7	question	Did this affect other priorities?	Yes|No|Partially		
+R3M	Q8M	reflection	You are progressing well but can improve balance further.		+1
+
+Q8N	D7	question	What caused distraction?	Social media|Lack of planning|Low motivation		
+D8N	Q8N	decision			answer=Social media:Q9N;answer=Lack of planning:Q9N;answer=Low motivation:Q9N	
+
+Q9N	D8N	question	How can you improve focus tomorrow?	Set goals|Reduce distractions|Follow schedule		
+R3N	Q9N	reflection	Improving focus will significantly enhance your productivity.		+1
